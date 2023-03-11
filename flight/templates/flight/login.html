@@ -1,0 +1,18 @@
+{% extends 'flight/layout.html' %}
+
+{% block body %}
+    {% if message %}
+        <div style="color: red;">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form action="{% url 'login' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" />
+        <input type="password" name="password" placeholder="password" />
+        <input type="submit" />
+    </form>
+    {% if logout %}
+        {{ logout }}
+    {% endif %}
+{% endblock %}
